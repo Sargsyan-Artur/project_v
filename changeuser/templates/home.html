@@ -1,0 +1,20 @@
+{% block content %}
+
+<!--<p><a href="/logout">logout</a></p>-->
+
+
+
+{% endblock %}
+{% if user.is_authenticated %}
+qweqweqwe
+{{ user.first_name }}
+{{ user.images }}
+
+<img src='{{ MEDIA_URL }}{{ user.images }}'>
+
+
+<p><a href="/logout">logout</a></p>
+{% else %}
+
+
+{% endif %}

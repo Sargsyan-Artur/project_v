@@ -1,0 +1,9 @@
+  <h2>Sign up</h2>
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{form.errors}}
+    <button type="submit">Sign up</button>
+  </form>
+  <button type="button"> <a href="/"> Login  </a></button>
+

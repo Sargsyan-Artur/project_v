@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<img src='{{ MEDIA_URL }}{{ user.images }}'>
+
+
+</body>
+</html>
+
+{% endblock %}
