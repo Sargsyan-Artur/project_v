@@ -1,11 +1,12 @@
 
-{% extends 'home.html' %}
 
-{% block content %}
+
 {% if user.is_authenticated %}
+    <p> you is_authenticated </p>
+      <button type="button"> <a href="/home"> home  </a></button>
 
 {% else %}
-<h2>Login</h2>
+    <h2>Login</h2>
       <form  method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -14,6 +15,4 @@
       <button type="button"> <a href="/registration/"> registration  </a></button>
 
 {% endif %}
-{% endblock %}
-
 

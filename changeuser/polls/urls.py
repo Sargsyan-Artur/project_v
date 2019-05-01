@@ -23,4 +23,4 @@ urlpatterns = [
 
     path('', views.Registration.as_view(), name='registration'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

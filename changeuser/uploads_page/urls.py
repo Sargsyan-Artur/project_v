@@ -18,8 +18,10 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView
 from . import views
 
+
+app_name = 'upload'
+
 urlpatterns = [
-
-    path('', views.upload, name='upload'),
-
+    path('<int:pk>/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('', views.FileDownloadApload.as_view(), name='download'),
 ]

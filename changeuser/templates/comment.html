@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+     <table border="1" colspan="2" width="100%">
+         <tr>
+              <th width="60%">File</td>
+         </tr>
+         <tr>
+             {% if file %}
+                <td width="60%" > {{file.name}} </td>
+             {% endif %}
+         </tr>
+     </table>
+     <form method="post">
+     {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">add_comment </button>
+     </form>
+    {% if all_comm_this_post %}
+        {% for com in all_comm_this_post %}
+            <h1>user {{com.author}}</h1>
+            <h6>   {{ com }}  </h6>
+        {% endfor %}
+    {% endif %}
+
+
+</body>
+</html>

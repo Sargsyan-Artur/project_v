@@ -1,20 +1,81 @@
+
+
+{% if user.is_authenticated %}
+
+      {{ user.first_name }}
+<!--  {{ MEDIA_URL }}  -@ empty    -->
+
+      <img src='/media/{{ user.images }}' height="42" width="42">
+
+      <h2>Upload file</h2>
+      <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">ok </button>
+      </form>
+<!-- message true uploaded file -->
+      {%if messages %}
+            {% for message in messages %}
+                  {{message}}
+            {% endfor %}
+            {{ last_upload_files }}
+      {% endif %}
+
+
+<!-- download file forma  -->
+
+      <table border="1" colspan="2" width="100%">
+         <tr>
+           <th width="60%">File</td>
+           <th width="40%">Download</td>
+         </tr>
+       <form  action="{% url 'upload:download' %}"  method="get">
+        {% csrf_token %}
+             {% for file in all_upload_files %}
+                 <tr>
+                     <td width="60%" > <a href="{% url 'upload:add_comment_to_post' file.id %}">  {{file}} </a> </td>
+                     <td width="40%" align="center"><button type="submit" value="{{ file.id }}" name="id" style="text-decoration:None">Download here</button></td>
+                 </tr>
+             {% endfor %}
+
+
+
+       </form>
+
+      </table>
+<!--  {% if contex %}-->
+<!--     <tr>-->
+
+<!--        <td width="60%" >  {{file}} </td>-->
+<!--         {% for comment in post.comments.all %}&ndash;&gt;-->
+<!--            <div class="comment">-->
+<!--                <div class="date">{{ comments.date }}</div>-->
+<!--                <strong>{{ comment.author }}</strong>-->
+<!--                <p>{{ comment.text|linebreaks }}</p>-->
+<!--            </div>-->
+<!--        {% empty %}-->
+
+<!--            <p>No comments here yet :(</p>-->
+<!--        {% endfor %}-->
+
+<!--     </tr>-->
+<!--   {% endif %}-->
+
+
+      <p><a href="/logout">logout</a></p>
+
+
+
+{% else %}
+ you no loginid
+<button type="button"> <a href="/"> Login  </a></button>
+
+{% endif %}
+
 {% block content %}
 
-<!--<p><a href="/logout">logout</a></p>-->
+
 
 
 
 {% endblock %}
-{% if user.is_authenticated %}
-qweqweqwe
-{{ user.first_name }}
-{{ user.images }}
-
-<img src='{{ MEDIA_URL }}{{ user.images }}'>
-
-
-<p><a href="/logout">logout</a></p>
-{% else %}
-
-
-{% endif %}

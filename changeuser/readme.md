@@ -1,6 +1,7 @@
-mysql -u root -p
- show databases;
- CREATE DATABASE myproekt;
+--------- db ----------------
+  mysql -u root -p
+  show databases;
+  CREATE DATABASE myproekt;
   GRANT ALL PRIVILEGES ON myproekt.* TO 'user'@'%' WITH GRANT OPTION;
   git init
    

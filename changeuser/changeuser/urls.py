@@ -26,10 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('registration/', include("polls.urls")),
     path('home/', include("uploads_page.urls")),
-    path('logout/', LogoutView.as_view(template_name='logout.html'),  name="logout"),
-
+    path('logout/', LogoutView.as_view(template_name='registration/login.html'),  name="logout"),
     path('', LoginView.as_view(template_name='registration/login.html'), name="login"),
-]
 
-if settings.DEBUG: # new
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
