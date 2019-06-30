@@ -25,4 +25,3 @@ git push
  pip install black
 black ./
 pip freeze > requirements.txt
-pip freeze > requirements.txt
