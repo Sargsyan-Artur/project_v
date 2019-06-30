@@ -31,5 +31,7 @@ virtualenv venv
 source venv/bin/activate
 pip install django
 pip install python
+sudo apt-get upgrade python3
+
 
 django-admin.py startproject project_name .
