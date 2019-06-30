@@ -25,3 +25,11 @@ git push
  pip install black
 black ./
 pip freeze > requirements.txt
+
+----venv---------
+virtualenv venv
+source venv/bin/activate
+pip install django
+pip install python
+
+django-admin.py startproject project_name .
