@@ -20,3 +20,9 @@ git add .
 git status
 git commit -m "Add change file"
 git push
+
+-------BLACK------------
+ pip install black
+black ./
+pip freeze > requirements.txt
+pip freeze > requirements.txt
