@@ -15,21 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import LoginView
-from django.contrib.auth.views import LogoutView
+# from django.contrib.auth.views import LoginView
+# from django.contrib.auth.views import LogoutView
 from . import settings
 
 from django.conf.urls.static import static
-app_name = 'changeuser'
+
+app_name = "changeuser"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('registration/', include("polls.urls")),
-    path('home/', include("uploads_page.urls")),
-    path('logout/', LogoutView.as_view(template_name='registration/login.html'),  name="logout"),
-    path('', LoginView.as_view(template_name='registration/login.html'), name="login"),
-
-
-
+    path("admin/", admin.site.urls),
+    path("registration/", include("users_registration.urls")),
+    path("home/", include("uploads_page.urls")),
+    # path(
+    #     "logout/",
+    #     LogoutView.as_view(template_name="registration/login.html"),
+    #     name="logout",
+    # ),
+    # path("", LoginView.as_view(template_name="registration/login.html"), name="login"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

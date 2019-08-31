@@ -6,30 +6,26 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('uploads_page', '0002_postfile_name'),
-    ]
+    dependencies = [("uploads_page", "0002_postfile_name")]
 
     operations = [
         migrations.RenameField(
-            model_name='comments',
-            old_name='file_key',
-            new_name='post',
+            model_name="comments", old_name="file_key", new_name="post"
         ),
         migrations.AddField(
-            model_name='comments',
-            name='approved_comment',
+            model_name="comments",
+            name="approved_comment",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='comments',
-            name='author',
-            field=models.CharField(default='', max_length=200),
+            model_name="comments",
+            name="author",
+            field=models.CharField(default="", max_length=200),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='comments',
-            name='date',
+            model_name="comments",
+            name="date",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

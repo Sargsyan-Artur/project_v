@@ -6,12 +6,23 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Password confirmation", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = MyUser
-        fields = ("first_name", "last_name", "email", "password1", "password2", "images", "birth_date")
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
+            "password1",
+            "password2",
+            "images",
+            "birth_date",
+        )
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -35,39 +46,25 @@ class UserChangeForm(forms.ModelForm):
     the user, but replaces the password field with admin's
     password hash display field.
     """
+
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = MyUser
 
-        fields = ("first_name", "last_name", "email", "password", "images", "birth_date", "is_active", "is_admin")
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
+            "password",
+            "images",
+            "birth_date",
+            "is_active",
+            "is_admin",
+        )
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
         # This is done here, rather than on the field, because the
         # field does not have access to the initial value
         return self.initial["password"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

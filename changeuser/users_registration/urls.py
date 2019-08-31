@@ -19,8 +19,4 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
-urlpatterns = [
-
-    path('', views.Registration.as_view(), name='registration'),
-
-]
+urlpatterns = [path("", views.Registration.as_view(), name="registration")]

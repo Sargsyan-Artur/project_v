@@ -18,20 +18,19 @@ class Registration(generic.CreateView, BaseCreateView):
     success_url = "/home"
 
     def post(self, request):
-        if request.method == 'POST':
+        if request.method == "POST":
             form = self.form_class(request.POST, request.FILES)
 
             if form.is_valid():
                 new_user = form.save()
                 messages.info(request, "Thanks for registering. You are now logged in.")
-                new_user = authenticate(email=form.cleaned_data['email'],
-                                        password=form.cleaned_data['password1'],
-                                        )
+                new_user = authenticate(
+                    email=form.cleaned_data["email"],
+                    password=form.cleaned_data["password1"],
+                )
                 login(request, new_user)
-                print('home')
-                return HttpResponseRedirect('/home')
+                print("home")
+                return HttpResponseRedirect("/home")
             else:
 
                 return super(Registration, self).post(request)
-
-

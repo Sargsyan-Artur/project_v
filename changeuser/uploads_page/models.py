@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class PostFile(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    file = models.FileField(upload_to='files/')
+    file = models.FileField(upload_to="files/")
     name = models.CharField(max_length=255)
 
     def __str__(self):
@@ -15,7 +15,7 @@ class PostFile(models.Model):
 class Comments(models.Model):
     post = models.ForeignKey(PostFile, on_delete=models.CASCADE)
     comment = models.TextField()
-    author = models.CharField(max_length=200)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
