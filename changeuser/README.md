@@ -1,4 +1,6 @@
 --------- db ----------------
+sudo apt-get update
+sudo apt-get install mysql-server
 mysql -u root -p
 show databases;
 CREATE DATABASE myproekt;
