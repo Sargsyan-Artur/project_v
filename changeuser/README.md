@@ -8,7 +8,7 @@ GRANT ALL PRIVILEGES ON myproekt.* TO 'user'@'%' WITH GRANT OPTION;
 git init
 
 ---------------GIT-----------------
-git clone https://github.com/Sargsyan-Artur/test.git copy in git
+git clone https://github.com/Sargsyan-Artur/test.git #copy in git
 cd clone project
 git add .
 git status
