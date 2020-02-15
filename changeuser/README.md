@@ -6,7 +6,14 @@ show databases;
 CREATE DATABASE myproekt;
 GRANT ALL PRIVILEGES ON myproekt.* TO 'user'@'%' WITH GRANT OPTION;
 pip install mysqlclient
-
+---------------GIT----
+git branch
+git checkout master
+git status
+git remote add origin https://github.com/Sargsyan-Artur/codics.git   git um  creat arac papki liky vor pti upload lini  
+---------------GIT----
+for checkout on branch in git: git checkoput <branch name>
+for create new branch and checkout in git: git checkout -b <branch name>
 
 ---------------GIT-----------------
 git init
