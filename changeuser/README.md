@@ -1,3 +1,5 @@
+----------creat db user------------
+CREATE USER 'newuser'@'%' IDENTIFIED BY 'user_password';
 --------- db ----------------
 sudo apt-get update
 sudo apt-get install mysql-server
@@ -6,6 +8,9 @@ show databases;
 CREATE DATABASE myproekt;
 GRANT ALL PRIVILEGES ON myproekt.* TO 'user'@'%' WITH GRANT OPTION;
 pip install mysqlclient
+--------------delet db ------------
+DROP DATABASE db_name
+
 ---------------GIT----
 git branch
 git checkout master
